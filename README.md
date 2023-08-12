@@ -1,19 +1,23 @@
 # Physical-Design-using-OpenLANE-SKY130
-Advanced Physical Design Workshop using OpenLANE/SKY130
+**Advanced Physical Design Workshop using OpenLANE/SKY130**
 
-DAY 3: LAB SESSION
+## DAY 3: LAB SESSIONS
 
-GIT CLONE of "vlsistdcelldesign"
+### GIT CLONE of "vlsistdcelldesign"
   1. First go to the directory of vlsistdcelldesign on github.
-  2. Clone the github repo "https://github.com/nickson-jose/vsdstdcelldesign.git" by the following command "git clone https://github.com/nickson-jose/vsdstdcelldesign.git"
+  2. Clone the github repo "https://github.com/nickson-jose/vsdstdcelldesign.git".
+    Command: `git clone https://github.com/nickson-jose/vsdstdcelldesign.git`
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/2591669a-ab7b-47b0-a9a7-c12d938a9062)
 
-  3. After the cloning is completed, copy the tech file using the following: "cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign/"
+  3. After the cloning is completed, copy the tech file.
+    Command: `cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign/`
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ef076efc-74cc-4bd1-8958-7110816d13e3)
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dbdad075-807a-4f08-bf76-a835f774d9f4)
 
-MAGIC TOOL
-  1. Open MAGIC tool to see the standard cell design in the cloned directory location. Command "magic -T sky130A.tech sky130_inv.mag &"
+### MAGIC TOOL
+  1. Open MAGIC tool to see the standard cell design in the cloned directory location. 
+  Command:
+  `magic -T sky130A.tech sky130_inv.mag &`
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/14614ce0-1c41-4506-a074-8c4ae7902230)
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3b1c391e-f467-48de-a439-3fa26ebebf46)
 
