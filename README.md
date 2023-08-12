@@ -19,7 +19,7 @@
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dbdad075-807a-4f08-bf76-a835f774d9f4)
 
 ### MAGIC TOOL
-  1. Open MAGIC tool to see the standard cell design in the cloned directory location.
+  1. Open MAGIC tool to see the standard cell design in the cloned directory location. Also the tkcon terminal for MAGIC will open.
 
   Command:
   `magic -T sky130A.tech sky130_inv.mag &`
@@ -39,6 +39,10 @@
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3fb5087b-a2c0-4659-8a1e-38e2796e193a)
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/09b547c1-251a-4a6f-bb40-fab04d1a41c5)
 
-  6. Now in the terminal of MAGIC tool, after selecting any part of the design using 's', type 'what'. PMOS and NMOS has been decribed the terminal.
+  6. Now in the tkcon terminal, after selecting any part of the design using 's', type `what`. PMOS and NMOS has been decribed the terminal.
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c96cc201-e20d-4723-90a5-ef728a66ec31)
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/079e8873-9579-443f-919d-664035806852)
+
+  7. Go through the vlsistdcelldesign for more details on the cell design of the cloned github.
+  8. MAGIC tool is also a DRC check tool and the design always has to be DRC clean. It can highlight the same and errors will be shown in the terminal.
+  9. TO know the logic, it has to be extracted to SPICE in ngspice.
