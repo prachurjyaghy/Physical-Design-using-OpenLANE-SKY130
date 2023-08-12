@@ -1,3 +1,6 @@
+
+
+
 # Physical-Design-using-OpenLANE-SKY130
 **Advanced Physical Design Workshop using OpenLANE/SKY130**
 
@@ -45,4 +48,15 @@
 
   7. Go through the vlsistdcelldesign for more details on the cell design of the cloned github.
   8. MAGIC tool is also a DRC check tool and the design always has to be DRC clean. It can highlight the same and errors will be shown in the terminal.
-  9. TO know the logic, it has to be extracted to SPICE in ngspice.
+  9. To know the logic, it has to be extracted to SPICE in ngspice:
+      a. In the vlsistdcelldesign directory, use `extract all`.
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ea0a5ebd-ca49-47c7-9264-e939f0ac2b80)
+     
+      b. Extracted file is created with .ext.
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/206acbb3-32eb-456d-961a-90fdd484b4d6)
+     
+      c. To use in the **ngspice** tool: `ext2spice cthresh 0 rthresh 0` . Does parasitic extraction as well.
+      d. To create .spice file : ext2spice
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/51f06562-4ca8-486e-bfad-c01c49664d65)
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e1251cd7-141a-4f70-83ca-da223dad0062)
+
