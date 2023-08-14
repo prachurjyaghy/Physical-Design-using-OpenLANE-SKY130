@@ -248,6 +248,15 @@ read_db pico_cts.db
 4. Follow the same statements as in the .conf file.
 ```
 read_verilog /openLANE_flow/designs/picorv32a/runs/New_RUN_13_08/results//synthesis/picorv32a.synthesis_cts.v
+read_liberty -max $::env(LIB_SLOWEST)
+read_liberty -min $::env(LIB_FASTEST)
+read_sdc /openLANE_flow/designs/picorv32a/src/mybase.sdc
+```
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/cb4cc9da-2939-4399-9752-14bd86a3cfa1)
 
-
-5. 
+5. As clocks have been built, the propagated clocks will calculate the actual cell delay in the clock path and check the reports.
+```
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -format full_clock_expanded -digits 4
+```
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/549d68d6-562a-467e-8c5f-51446e948cb8)
