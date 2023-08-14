@@ -1,6 +1,7 @@
 
 
 
+
 # Physical-Design-using-OpenLANE-SKY130
 **Advanced Physical Design Workshop using OpenLANE/SKY130**
 
@@ -164,7 +165,7 @@ add_lefs -src $lefs
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/bdcdd921-2e04-44fa-9273-700d3cde4fbe)
 
 
-### OpenSTA
+### OpenSTA (Engine integrated with Openlane)
 
 1. Create a new sdc 'mybase.sdc' using gvim and update the following in it.
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/102088cf-8d26-44fb-9645-ecabc42831bc)
@@ -192,4 +193,61 @@ add_lefs -src $lefs
 8. Verify the replaced cell in the netlist for verification. Ex: use the cell instance _13160_ and check if the resize happened. It should increase from 2 to 4 size.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/89e32cd5-7533-4604-be26-3d153408d9ec)
 
-### 
+9. Run the floorplan `run_floorplan` and placement `run_placement` without the synthesis now or it will update the netlist again. 
+
+### TritonCTS
+
+1. Once placement is completed move on to CTS stage, check the README file in configuration directory for the variables. Run CTS `run_cts`.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/73260b0f-f4e2-43f4-9558-834abe596481)
+
+2. In TCL, TCL proc - defination are made in flow and called during runs.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/d3a4d5fa-f197-445e-9c1c-30c38b1250b5)
+
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b07cad66-663e-45c2-b914-5022cb6ffab2)
+  
+  > As per flow, synthesis in not part of the openroad scripts whereas others all are present.
+  > ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6e08172d-6fcc-4c93-be6d-6edcccc91562)
+
+3.  Inside the or_cts.tcl, we can check the variables using `echo`.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6c303434-8565-4193-bda3-da20845dc456)
+
+
+4. Inside the same or_cts.tcl file, clock_tree_synthesis where the **TritonCTS** engine is used and the control is passed to it.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/747733ea-067f-4cd0-94d3-bae1e239cf59)
+
+5. Check the clock buffers used.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c02f28d0-a36e-43e5-a3a0-e263db1af7e6)
+
+  > Current drawback for TritonCTS - it cannot create optimized CTS for multiple corners.
+6. Compare the CTS_MAX_CAP from the tcl script and the typical lib.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/66668371-0075-4e2c-90f1-075c476aafd7)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3794131a-cb67-4eaf-a0e5-fddec107ec40)
+
+
+### OPENROAD
+
+1. Invoke the openroad `openroad`. As we are inside the openlane, we can use the variables.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/328d9199-696a-44f7-9b8b-e681f111a863)
+
+2. Timing analysis is done after creating db using the lef and def files and only once is required to be created. Post cts def to be used.
+```
+read_lef /openLANE_flow/designs/picorv32a/runs/New_RUN_13_08/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/New_RUN_13_08/results/cts/picorv32a.cts.def
+```
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/1f7e79be-0436-4c23-9958-6f4af6405a1e)
+
+    > NOTE: as we have invoked the openroad in its directory, no need to provide the full path or else will face error.
+    
+3. Create the db file.
+```
+write_db pico_cts.db
+read_db pico_cts.db
+```
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6c05ff3b-3612-4988-af94-841801b84a9a)
+
+4. Follow the same statements as in the .conf file.
+```
+read_verilog /openLANE_flow/designs/picorv32a/runs/New_RUN_13_08/results//synthesis/picorv32a.synthesis_cts.v
+
+
+5. 
