@@ -7,6 +7,7 @@
 ## DAY 3: LAB SESSIONS
 
 ### GIT CLONE of "vlsistdcelldesign"
+
   1. First go to the directory of vlsistdcelldesign on github.
   2. Clone the github repo "https://github.com/nickson-jose/vsdstdcelldesign.git".
 
@@ -20,6 +21,7 @@
   
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ef076efc-74cc-4bd1-8958-7110816d13e3)
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dbdad075-807a-4f08-bf76-a835f774d9f4)
+
 
 ### MAGIC TOOL
 
@@ -69,12 +71,15 @@
         > ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/20fbaa5f-38a9-4b76-804a-379125349f67)
 > For more information and working of MAGIC, go to "http://opencircuitdesign.com/magic/index.html"
 
+
 ### NGSPICE
+
   1. After the file is saved, invoke the .spice file in ngspice `ngspice sky130_inv.spice`. If ngspice not available, use `sudo apt install ngspice`.
      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ae7b999a-aa26-422c-bf94-22ab8a098e9d)
   2. Plot the graph using `plot y vs time a`.
   3. Calculate the cell rise and fall delays for PVT characteristics.
      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/10187b06-394c-4361-a434-f01b2929d053)
+
 
 
 ## DAY 4: LAB SESSIONS
@@ -194,6 +199,7 @@ add_lefs -src $lefs
 
 9. Run the floorplan `run_floorplan` and placement `run_placement` without the synthesis now or it will update the netlist again. 
 
+
 ### TritonCTS
 
 1. Once placement is completed move on to CTS stage, check the README file in configuration directory for the variables. Run CTS `run_cts`.
@@ -290,6 +296,8 @@ set_propagated_clock [all_clocks]
    > 
    > To add the clock buffer again into the list, `set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]`
 
+
+## DAY 5
 
 ### Power Distribution Network (PDN)
 
