@@ -185,3 +185,11 @@ add_lefs -src $lefs
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3ec914f6-e505-4774-8fce-39002583882a)
 
 6. If require to check the timing report through a net from startpoint to endpoint, use `report_checks -from _27860_ -to _27762_ -through _13165_` . This will help to check the report for the specific path.
+
+7. Replace the synthesis path in the run directory with the updated timing run data using `write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/New_RUN_13_08/results/synthesis/picorv32a.synthesis.v`. This replaces the existing verilog with the updated timing verilog.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e278a75c-612f-4b38-806d-d265e7f02f05)
+
+8. Verify the replaced cell in the netlist for verification. Ex: use the cell instance _13160_ and check if the resize happened. It should increase from 2 to 4 size.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/89e32cd5-7533-4604-be26-3d153408d9ec)
+
+### 
