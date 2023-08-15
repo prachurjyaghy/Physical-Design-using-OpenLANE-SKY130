@@ -1,11 +1,13 @@
 
 
 
-
 # Physical-Design-using-OpenLANE-SKY130
 **Advanced Physical Design Workshop using OpenLANE/SKY130**
 
 ## DAY 3: LAB SESSIONS
+
+### Initial
+1. 
 
 ### GIT CLONE of "vlsistdcelldesign"
 
@@ -307,7 +309,21 @@ set_propagated_clock [all_clocks]
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/30ac2957-6295-48a5-af3c-aaaa7d119bbb)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4ea7bf46-abdb-441d-8960-9ff9c883564f)
 
-3. This will now update the CURRENT_DEF which includes the cts and power defs.
+3. This will now update the CURRENT_DEF which includes the cts and power defs. Check def `echo $::env(CURRENT_DEF)`.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8683b014-bc84-4791-bcc4-d4df3de572b0)
 
 
+### TritonRoute
+
+1. Check the Readme.md file in the config for the Routing variables. Since the tool is updated, the 'ROUTING_STRATEGY' is now divided among other variables like 'ROUTING_OPT_ITERS' , 'GLB_RT_MAX_DIODE_INS_ITERS' and other variables for routing process. No need to update variable. Check the existing values.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c5a3c5ef-fc19-435b-aaf3-3215f097de19)
+
+2. Now start `run_routing`. Using the default variable values, the TritonRoute will move to have 'zero' DRC violations. Therfore no DRC file will be created.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/86f77cd8-b058-4cf8-81ad-82a0d0c22922)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8e6c6e0d-ddc0-47f3-81bb-fd590745b83e)
+
+3. Routing guides for Global 'fastroute' and Detailed 'tritonRoute' routing can be found in the 'tmp' directory of the respective run.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8b21a3e3-eb6e-41d5-8560-7e838cb6a3a8)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/326a27b9-6ed4-485c-b3f1-04d23b07feb6)
+
+4. 
