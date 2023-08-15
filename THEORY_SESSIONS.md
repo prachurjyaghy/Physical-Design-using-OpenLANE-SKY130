@@ -47,6 +47,49 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
    a. 130 nm has good performance which do not need advanced nodes.
    b. Fabrication is cheaper.
    c. Ex: Intel: P4EE @ 3.46GHz (Q4'04). OSU team reproted 327 MHz post layout clock frequency for single RV32i CPU.
-4. 
+
+#### 2.2 Simplified RTL2GDSII flow
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/79bea548-a023-43a6-8b3b-e02dfdf7a166)
 
+   **SYNTHESIS**
+   1. Converts RTL to circuit out of components from standard cell library.
+   2. Standard cells have regular layout.
+   3. Each cell has different views/ models (Electrical, HDL, SPICE and Layout(Abstract and Details))
+
+   **FLOOR AND POWER PLANNING**
+   1. Chip floor planning requires partition of the chip die between different system building blocks and place the IO pads.
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/819e87ab-c98f-4951-a6ff-b7ba03739890)
+
+   2. Macro planning requires dimensions, pin locations rows design.
+   3. Powerplanning requires horizontal & vertical stripes and connecting to each other.
+      a. Reduces resistance
+      b. Addresses electromigration
+         > Electromigration:
+         > Failure mechanism to be considered in VLSI physical design. Atoms in traces can experience diffusion (real interconnects). Eventually leaves an open circuit                  (driven bycurrent density and temperature of conductor of the interconnect).
+         
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/833befac-7db2-4ba4-8f5b-6a1e676eb21d)
+
+   **PLACEMENT**
+   1. Place cells on floorplan rows, aligned with sites.
+   2. Two steps:
+      a. GLobal: Optimal position of all cells(may not be legal).
+      b. Detail: Global cells positioned are altered to be made legal.
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/efdc27a3-1c8c-4aef-981d-694d83e0a215)
+
+   
+   **CLOCK TREE SYNTHESIS**
+   1. Creates a clock distribution network.
+      a. deliver clock to all cells
+      b. with min skew (0 is hard to achieve)
+      c. in good shape
+      d. usually a tree
+
+   **SIGNAL ROUTING**
+   1. Implement the interconnects using available metal layers.
+   2. Lowest layer is for local interconnect layer and is made of titanium alloy.
+   3. All above layers are of aluminium layers.
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/925eb1e6-89f1-4d5c-ace5-a88c88cf0a47)
+
+   **SIGN OFF**
+   1. Physical Verification: DRC , Layout vs schematic (final layout mathces the Gate level netlist)
