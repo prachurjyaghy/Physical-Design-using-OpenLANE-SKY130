@@ -213,6 +213,21 @@
 
 1. For tutorial and more details go to the [opencircuitdesign](http://opencircuitdesign.com/magic/index.html) website.
 2. For skywater pdks check [skywaterpdks](https://github.com/google/skywater-pdk)
+3. Get the Magic drc open pdk using for lab.
+   ```
+   wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+   tar -xfz
+   cd drc_tests
+   ls -lrth
+   ```
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b5c83484-ecf7-431d-bd97-40a963aa40ce)
+
+4. File .magicrc helps for startup.
+5. Use `magic -d XR` to invoke magic.
+6. Open met3.mag file.
+7. Each one has its own name and has design rules in googl skywater readme under the 'Design Rules' tab. Go to periphery rules for the metal 3.
+
+
 
 
 ## DAY 4: Pre-layout timing analysis and importance of good clock tree
