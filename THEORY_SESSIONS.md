@@ -1,4 +1,6 @@
 # THEORY SESSIONS
+
+
 ## DAY 1: Inception of open source EDA, OpenLANE and Sky130PDK
 
 ### 1. How computers talk
@@ -35,6 +37,7 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
 2. Inside the system software, RTL code is then given to the synthesis tool and the RTL synthesis is created.
 3. Physical design implementation of picrov32 takes place.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ce0ad461-547a-44b1-8fe7-ba29d03c4042)
+
 
 
 ### 2. SoC Design and OpenLANE
