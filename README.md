@@ -1,13 +1,19 @@
 
 
 
+
 # Physical-Design-using-OpenLANE-SKY130
 **Advanced Physical Design Workshop using OpenLANE/SKY130**
 
 ## DAY 3: LAB SESSIONS
 
-### Initial
-1. 
+### Initial IO placer
+
+1. As openlane is an iterative tool, variables can be updated to change as per requirement. Example, changing the IO spacing.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/424b27ba-60f3-4c18-abce-26ecc033e02a)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/78ac31df-e77e-4a39-97a8-8beaff6ea292)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/65d2872a-6709-47fa-b973-42a1019a26a0)
+
 
 ### GIT CLONE of "vlsistdcelldesign"
 
@@ -326,4 +332,16 @@ set_propagated_clock [all_clocks]
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8b21a3e3-eb6e-41d5-8560-7e838cb6a3a8)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/326a27b9-6ed4-485c-b3f1-04d23b07feb6)
 
-4. 
+4. Openlane now supports SPEF creation in its routing flow. So check the .spef file in the '<run_dir>/routing' after the routing is comlpleted. The variable 'GLB_RT_MAX_DIODE_INS_ITERS' in the routing configuration makes sure to create the .spef file using the lef and the routing def.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/072dc1a8-f68b-4656-af18-3f16c385ab1a)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/97c00fa9-2a7b-4e2e-bfc0-382e1d6c4768)
+
+6. A pre-route netlist is created as '_preroute.v' in the synthesis directory before the routing.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/54cb56d5-3e5b-41ec-8782-19cd6d514d24)
+
+7.  In post STA analysis, will use the following:
+```
+read_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/New_RUN_13_08/results/synthesis/picorv32a.synthesis_preroute.v
+read_sdc  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/mybase.sdc
+read_spef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/New_RUN_13_08/results/routing/picorv32a.spef
+```
