@@ -21,3 +21,17 @@
 
    c. Die is where the chip is fabricated
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e002a27a-7acf-47f7-917e-c1c3a12239c2)
+
+
+### RISC-V introduction
+
+RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to assembly language programs (RISC-V) and then converted to computer language (Binary) for the computer layout (q flow).
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e39b454b-92c4-4b24-862f-9dfb82974abf)
+
+
+### How application software interacts with Hardware
+
+1. RISC-V ISA is introduced to the system software to interpret and transform the set of instructions to be read by the harware
+2. Inside the system software, RTL code is then given to the synthesis tool and the RTL synthesis is created.
+3. Physical design implementation of picrov32 takes place.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ce0ad461-547a-44b1-8fe7-ba29d03c4042)
