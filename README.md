@@ -5,9 +5,11 @@
 # Physical-Design-using-OpenLANE-SKY130
 **Advanced Physical Design Workshop using OpenLANE/SKY130**
 
-## DAY 3: LAB SESSIONS
 
-### Initial IO placer
+## LAB SESSIONS:
+## DAY 3: Design library cell using Magic Layout and ngspice characterization
+
+### IO placer
 
 1. As openlane is an iterative tool, variables can be updated to change as per requirement. Example, changing the IO spacing.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/424b27ba-60f3-4c18-abce-26ecc033e02a)
@@ -88,6 +90,9 @@
   2. Plot the graph using `plot y vs time a`.
   3. Calculate the cell rise and fall delays for PVT characteristics.
      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/10187b06-394c-4361-a434-f01b2929d053)
+
+
+### SKY130
 
 
 
