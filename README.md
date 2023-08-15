@@ -1,6 +1,7 @@
 
 
 
+
 # Physical-Design-using-OpenLANE-SKY130
 **Advanced Physical Design Workshop using OpenLANE/SKY130**
 
@@ -301,4 +302,9 @@ set_propagated_clock [all_clocks]
 
 ### Power Distribution Network (PDN)
 
-1. Invoke openlane and check the CURRENT_DEF `echo $::env(CURRENT_DEF)`. Use gen_pdn
+1. Invoke openlane and check the CURRENT_DEF `echo $::env(CURRENT_DEF)` which shows the previous run's def used.
+2. Use `gen_pdn` for creation of power network.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/30ac2957-6295-48a5-af3c-aaaa7d119bbb)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4ea7bf46-abdb-441d-8960-9ff9c883564f)
+
+3. 
