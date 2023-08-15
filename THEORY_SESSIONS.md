@@ -267,4 +267,25 @@ Example: Inverter design flow
 
 
 #### 1.2 Design rule check
-1. 
+1. 3 basic rules as per lithography requirement in fabrication:
+   a. Minimum wire width
+   b. Minimum wire pitch
+   c. Minimum wire spacing
+2. There are multiple rules given from foundry when checking the design.
+3. DRC violation: Signal short.
+   a. To solve this, the signal has to be re routed to other metal layers.
+   b. Via width and spacing has to be checked.
+4. Parasitic extraction:
+   a. Each wire has certain resistance and capacitance value, which needs to be extracted after routing for timing analysis by STA tools.
+
+
+### 2. Routing using TritonRoute
+
+1. Global route:
+   a. Routing grid is divided into rectangle blocks and is done by FastRoute.
+   b. Routing guide for each net is created.
+   c. Initial route guide -> Splitting -> Bridging -> Merging -> Preprocessed route guides.
+3. Detail route:
+   a. Output of FastRoute is actually routeguide for the detail route and is done by TritonRoute.
+   b. Use of algorithm to find the best wire connectivity.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ab649e47-463c-4130-a615-51cc96476bf7)
