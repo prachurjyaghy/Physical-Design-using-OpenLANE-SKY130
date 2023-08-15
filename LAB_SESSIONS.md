@@ -1,7 +1,10 @@
 # LAB SESSIONS:
+
+## DAY 1: Get familier to open-source EDA tools
+
 ## DAY 3: Design library cell using Magic Layout and ngspice characterization
 
-### IO placer
+### 1. IO placer
 
 1. As openlane is an iterative tool, variables can be updated to change as per requirement. Example, changing the IO spacing.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/424b27ba-60f3-4c18-abce-26ecc033e02a)
@@ -9,7 +12,7 @@
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/65d2872a-6709-47fa-b973-42a1019a26a0)
 
 
-### GIT CLONE of "vlsistdcelldesign"
+### 2. GIT CLONE of "vlsistdcelldesign"
 
   1. First go to the directory of vlsistdcelldesign on github.
   2. Clone the github repo "https://github.com/nickson-jose/vsdstdcelldesign.git".
@@ -26,7 +29,7 @@
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dbdad075-807a-4f08-bf76-a835f774d9f4)
 
 
-### MAGIC TOOL
+### 3. MAGIC TOOL
 
   1. Open MAGIC tool to see the standard cell design in the cloned directory location. Also the tkcon terminal for MAGIC will open.
 
@@ -75,7 +78,7 @@
 > For more information and working of MAGIC, go to "http://opencircuitdesign.com/magic/index.html"
 
 
-### NGSPICE
+### 4. NGSPICE
 
   1. After the file is saved, invoke the .spice file in ngspice `ngspice sky130_inv.spice`. If ngspice not available, use `sudo apt install ngspice`.
      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ae7b999a-aa26-422c-bf94-22ab8a098e9d)
@@ -84,11 +87,11 @@
      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/10187b06-394c-4361-a434-f01b2929d053)
 
 
-### SKY130
+### 5. SKY130
 
 
 
-## DAY 4: LAB SESSIONS
+## DAY 4: Pre-layout timing analysis and importance of good clock tree
 
 1. Go to the tracks.info file to check where the routing will happen in the metal layer.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dab60563-7fc9-418e-b80f-be779e7f0786)
@@ -117,7 +120,7 @@
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/778b2c18-9c91-4105-b8b3-7321edfa01b9)
 
 
-### OPENLANE
+### 1. OPENLANE
 
 1. To use new cell in synthesis, will check the lib files. The libs are different as per process corners. 
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/9b1b7726-13f3-441a-af2b-8201a87117d8)
@@ -175,7 +178,7 @@ add_lefs -src $lefs
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/bdcdd921-2e04-44fa-9273-700d3cde4fbe)
 
 
-### OpenSTA (Engine integrated with Openlane)
+### 2. OpenSTA (Engine integrated with Openlane)
 
 1. Create a new sdc 'mybase.sdc' using gvim and update the following in it.
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/102088cf-8d26-44fb-9645-ecabc42831bc)
@@ -206,7 +209,7 @@ add_lefs -src $lefs
 9. Run the floorplan `run_floorplan` and placement `run_placement` without the synthesis now or it will update the netlist again. 
 
 
-### TritonCTS
+### 3. TritonCTS
 
 1. Once placement is completed move on to CTS stage, check the README file in configuration directory for the variables. Run CTS `run_cts`.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/73260b0f-f4e2-43f4-9558-834abe596481)
@@ -235,7 +238,7 @@ add_lefs -src $lefs
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3794131a-cb67-4eaf-a0e5-fddec107ec40)
 
 
-### OPENROAD
+### 4. OPENROAD
 
 1. Invoke the openroad `openroad`. As we are inside the openlane, we can use the variables.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/328d9199-696a-44f7-9b8b-e681f111a863)
@@ -303,9 +306,9 @@ set_propagated_clock [all_clocks]
    > To add the clock buffer again into the list, `set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]`
 
 
-## DAY 5
+## DAY 5: Final steps for RTL2GDS using tritonRoute and openSTA
 
-### Power Distribution Network (PDN)
+### 1. Power Distribution Network (PDN)
 
 1. Invoke openlane and check the CURRENT_DEF `echo $::env(CURRENT_DEF)` which shows the previous run's def used.
 2. Use `gen_pdn` for creation of power network.
@@ -316,7 +319,7 @@ set_propagated_clock [all_clocks]
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8683b014-bc84-4791-bcc4-d4df3de572b0)
 
 
-### TritonRoute
+### 2. TritonRoute
 
 1. Check the Readme.md file in the config for the Routing variables. Since the tool is updated, the 'ROUTING_STRATEGY' is now divided among other variables like 'ROUTING_OPT_ITERS' , 'GLB_RT_MAX_DIODE_INS_ITERS' and other variables for routing process. No need to update variable. Check the existing values.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c5a3c5ef-fc19-435b-aaf3-3215f097de19)
