@@ -162,22 +162,109 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
 ### 1. Chip floor planning considerations
 
 #### 1.1 Utilization factor and aspect ratio
-1.  Define height and width of core and die
+1.  Define height and width of core and die.
+![WhatsApp Image 2023-08-15 at 15 17 27(8)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/79976536-0e08-40a5-921c-c862376ab5ba)
+![WhatsApp Image 2023-08-15 at 15 17 27(7)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/36c1d09b-dd78-47eb-a376-9eb11b03fca9)
+
 2.  Utilization factor = (Area occupied by netlist) / (Area of core)
+![WhatsApp Image 2023-08-15 at 15 17 27(6)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/fe0e95d6-e99d-446b-9bac-915b95a972b2)
+![WhatsApp Image 2023-08-15 at 15 17 27(4)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/57c10aa9-d8c0-4fd8-9fb6-541475e5d419)
+
 3.  Aspect ratio = Height / Width
+![WhatsApp Image 2023-08-15 at 15 17 27(5)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4b8de65e-e972-489b-b345-376bb4a6f2e8)
+
 
 #### 1.2 Pre-placed cells
 1.  Combinational logic output has multiple gates.
+![WhatsApp Image 2023-08-15 at 15 17 27(3)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/600eb15b-9a0b-4485-a151-155371eb83ed)
+
    a. Divided as cut1 & cut2 which is separated as 2 blocks. IO pins are extended for connection.
+   ![WhatsApp Image 2023-08-15 at 15 17 27(2)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/84f8e583-0cc7-4f41-ad88-810a7a84ad07)
+
    b. Blackboxes as two different IP's / modules. Users can implement separately for reuse.
 2. IPs example: memory, clock gating cell, comparator, MUX. Plcaement is fixed before routing and automates PnR tools
 
+
 #### 1.3 De-coupling capacitors
 1. Discharge of capacitor should be handled by source voltage. This is due to wire resistance, the Vdd -> Vdd' and will not be detected as logic '1'.
+![WhatsApp Image 2023-08-15 at 15 17 27(1)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/fd6db1ce-bb31-4a71-b098-340730a55b83)
+
 2. This region is noise margin. For detections, logic '0' -> '1' should be in NML and logic '1' -> '0' should be in NMH regions.
 3. During switching, decoupling capacitors will send current to the circuit needed. When no switching happens, it gets charge from the source.
 4. In the design, surronding block will have DECAPs placed and supply required current to the needed blocks.
+![WhatsApp Image 2023-08-15 at 15 17 27](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/31f07d66-9ff4-4427-8eec-10e825807b6d)
+
+
+#### 1.4 Powerplanning
+1. Example of 16-bit bus where logic '1' is charged to Vdd and logic '0' is charged to Vss.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/22e1f884-854a-40b6-85b5-68aa39c4bbbe)
+
+2. All capactors which were charged to 'V' volts, will have to discharge to '0' volts through single 'Ground' tap point. This will cause bump in 'Ground' tap point.
+3. Initial bump due to multiple switching to '0'.
+4. Moreover, all capacitors which were at '0' volts will have to charge to 'V' volts through single Vdd tap point. This lowering of voltage at 'Vdd' tap point is voltage droop. This happens due to a single power source.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/9ea698de-c328-4760-8450-3a229ab97c92)
+
+#### 1.5 Placement blockages
+1. After the preplaced cells are fixed in the design, this will will create a blockage and make sure no other cell placed there.
+2. Pins will be placed as well for the logic connections.
+
+
+### 2. Library binding and placement
+
+#### 2.1 Netlist binding and initial place design
+1. Views of gates and given physical form from the netlist.
+2. All components are done the same and in real time, the gates are in square / rectangle form only. They are placed in a shelf known as library.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8d8d65a0-8346-4875-b3a7-0e42135fa8bd)
+
+#### 2.2 Optimize placement with wire length and capacitance
+1. Cells are now palced as per the pins and logic and tracks.
+2. Since preplaced cells are placed, the cells are placed far from the input pins.
+3. Estimate the capacitance. Due to huge length, there could be loss of data, so repeater is added.
+
+#### 2.3 Final placement optimization
+1. Certain logics are abutted due to zero timing delay and high speed requirements
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/31f4d241-ccc3-47b7-802c-7736f478860e)
+
+2. Setup timing analysis will be done to check placement.
+
+#### 2.4 Library and characterization
+1. Logic synthesis (.v/sdc) -> Floorplanning (data from .v as per connection) -> placement (depends on logic pin connections -> CTS (take care of clock to reach each logic) -> routing (stage where actual connection happens based on the logic connections).
+2. Common in all the stages: Gates and cells which are collections of gate libraries represented to tool by .lef and .libs.
+
+
+### 3.  Cell design and characterization flows
+
+#### 3.1 Inputs for cell design flows
+1. Library contains macros/ IPs, standard cells, ICG.
+2. Different functionality and sizes with HVT, SVT, LVT.
+
+#### 3.2 Cell design flow:
+Example: Inverter design flow
+1. Inputs:
+   a. PDKs
+   b. DRC and LVS rules: Foundry defines the rules for real time implementation
+   c. SPICE: model parameters from foundry
+   d. libs and user defined specs: Physical parameters like drive strength, height, metal layer, pin location
+
+2. Design steps:
+   a. Circuit design
+3. 
+
 
 ## DAY 5: Final steps for RTL2GDS using tritonRoute and openSTA
 
-### 1. Maze Routing - Lee's Algorithm
+### 1. Routing and design rule check
+
+#### 1.1 Maze routing / Lee's algorithm
+1. By using any two point to connect logics, routing should be done with less possible bends.
+2. Algorithm creates routing grid for the two points. One is source and other is target.
+3. It tries to label all the adjacent grids to its source with numbers in ascending order. 1 being the adjacent and number increases as the grid increases. Only horizontal and vertical grids allowed. No diagonal labelling.
+4. Labelling will continuing under the placement blockages as well. Under die labelling will not occur.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c555f34c-080e-4be9-97ad-487a32019c25)
+5. Now route the two points with the least possible bend.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5cc7f120-3aae-415d-acde-ae5595b1022c)
+6. Limitation: when having millions of route, this algorithm will take lot of memory and time.
+
+
+#### 1.2 Design rule check
+1. 
