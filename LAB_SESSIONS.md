@@ -66,7 +66,31 @@
 
 4. **reports** folder has all the timing analysis in config and reports will be generated here.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4d6e1df4-2475-40ff-9743-d10104c6c8e5)
-   
+
+5. **config.tcl** in the run directory has default parameters used for the run. OpenLANE allows to make changes on the run and we can update the config to run it again.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/fc630ead-2811-44a7-83e8-82efe8f40725)
+
+6. **cmds.log** takes record of all the command used during the run.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0e950f1c-8eaa-4390-b4c4-e241cfc59dd0)
+
+7. `run_synthesis` after the design preparation stage. Wait for some time to complete.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0e261901-836b-4a4e-aff4-dcb10c672879)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/7476b609-6911-4cc5-8fef-25dcf60f407c)
+
+
+### 4. OpenLANE project Git link
+
+1. Setup of OpenLANE from Github using git clone and following the process in the [repository](https://github.com/efabless/openlane2)
+2. Refer to FOSSI dialup videos for installation.
+
+8. Synthesis file gets created in the run directory. Check other synthesis files.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/617b7a68-2e15-4376-9cbc-524363df9d94)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/a5240c91-65bd-4b96-bf84-ce05beb2e76b)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5141476b-b748-48d9-ad6c-6255a3e2d1a8)
+
+
+
+
 ## DAY 3: Design library cell using Magic Layout and ngspice characterization
 
 ### 1. IO placer
