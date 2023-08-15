@@ -1,7 +1,7 @@
 # THEORY SESSIONS
 ## DAY 1: Inception of open source EDA, OpenLANE and Sky130PDK
 
-### How computers talk
+### 1. How computers talk
 
 1. Chips come in packages as per requirement of fabrication.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/231cb865-45ba-4d6c-9428-7358e3ee9e15)
@@ -23,15 +23,30 @@
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e002a27a-7acf-47f7-917e-c1c3a12239c2)
 
 
-### RISC-V introduction
+#### 1.1 RISC-V introduction
 
 RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to assembly language programs (RISC-V) and then converted to computer language (Binary) for the computer layout (q flow).
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e39b454b-92c4-4b24-862f-9dfb82974abf)
 
 
-### How application software interacts with Hardware
+#### 1.2 How application software interacts with Hardware
 
 1. RISC-V ISA is introduced to the system software to interpret and transform the set of instructions to be read by the harware
 2. Inside the system software, RTL code is then given to the synthesis tool and the RTL synthesis is created.
 3. Physical design implementation of picrov32 takes place.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ce0ad461-547a-44b1-8fe7-ba29d03c4042)
+
+
+### 2. SoC Design and OpenLANE
+
+#### 2.1 Components of open source digital ASIC design
+1. Lynn Conway and Carver Mead pioneered "structured" design methodology based on lambda based rules.
+   a. Fabless design companies emerged due to this.
+   b. PDKs are interface between fab and designers. Process Design Kit is collection of files to model a fabrication. (Includes Process Design Rules: DRC, LVS, PEX... ,            device models, Digital Standard Cell libraries, IO libraries)
+2. Google and Skywater releases OS PDK for ASIC implementation. Using Apache 2.0 license. Uses FOSS 130nm Production PDK.
+   a. 130 nm has good performance which do not need advanced nodes.
+   b. Fabrication is cheaper.
+   c. Ex: Intel: P4EE @ 3.46GHz (Q4'04). OSU team reproted 327 MHz post layout clock frequency for single RV32i CPU.
+4. 
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/79bea548-a023-43a6-8b3b-e02dfdf7a166)
+
