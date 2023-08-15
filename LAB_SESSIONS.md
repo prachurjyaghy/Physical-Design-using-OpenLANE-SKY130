@@ -56,24 +56,25 @@
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/54c6473c-6478-47f4-b348-1398ce1f7ef0)
 
 2. **tmp** folder is where the temp files are created.
+
    a. merged.lef is created when using the prep of picorv32 design (merged.py - Has layers, wires, cell level lef info which uses rectangle to define size)
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b6945b26-5258-4d13-bf39-9bc647159f6f)
    b. Check the merged.lef using `less merged.lef`
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6894f4ee-1611-48af-8570-ce1ed790bbb8)
 
-3. **results** folder has all the PnR level folders
+4. **results** folder has all the PnR level folders
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/026b048b-e2ae-49f5-adbf-befffb910130)
 
-4. **reports** folder has all the timing analysis in config and reports will be generated here.
+5. **reports** folder has all the timing analysis in config and reports will be generated here.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4d6e1df4-2475-40ff-9743-d10104c6c8e5)
 
-5. **config.tcl** in the run directory has default parameters used for the run. OpenLANE allows to make changes on the run and we can update the config to run it again.
+6. **config.tcl** in the run directory has default parameters used for the run. OpenLANE allows to make changes on the run and we can update the config to run it again.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/fc630ead-2811-44a7-83e8-82efe8f40725)
 
-6. **cmds.log** takes record of all the command used during the run.
+7. **cmds.log** takes record of all the command used during the run.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0e950f1c-8eaa-4390-b4c4-e241cfc59dd0)
 
-7. `run_synthesis` after the design preparation stage. Wait for some time to complete.
+8. `run_synthesis` after the design preparation stage. Wait for some time to complete.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0e261901-836b-4a4e-aff4-dcb10c672879)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/7476b609-6911-4cc5-8fef-25dcf60f407c)
 
@@ -83,13 +84,21 @@
 1. Setup of OpenLANE from Github using git clone and following the process in the [repository](https://github.com/efabless/openlane2)
 2. Refer to FOSSI dialup videos for installation.
 
-8. Synthesis file gets created in the run directory. Check other synthesis files.
+### 5. Steps to characterize synthesis results
+
+1. After `run_synthesis`, synthesis file gets created in the run directory. Check other synthesis files.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/617b7a68-2e15-4376-9cbc-524363df9d94)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/a5240c91-65bd-4b96-bf84-ce05beb2e76b)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5141476b-b748-48d9-ad6c-6255a3e2d1a8)
 
+2. Check report for yosys_4.stat.rpt which is a statistical report. Use `less 1-yosys_4.stat.rpt`
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/014a6009-a952-4fdc-bdfe-84d16dcdd92f)
 
+3. Check report for opensta_timing.stat.rpt which has the STA timing reprots. Use `less 2-opensta.min_max.rpt`
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/01a1b9fc-3e8c-405b-9c1c-2e314dc7c51b)
 
+4. To calculate the flop ratio, open the 'yosys_4.stat.rpt'. Divide the value of sky130_fd_sc_hd__dfxtp_2 and Total number of cells.
+     (sky130_fd_sc_hd__dfxtp_2) / (Total number of cells) = 1613/14876 = 0.1084 = 10.84%
 
 ## DAY 3: Design library cell using Magic Layout and ngspice characterization
 
