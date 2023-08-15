@@ -1,6 +1,5 @@
 
 
-
 # LAB SESSIONS:
 
 ## DAY 1: Get familier to open-source EDA tools
@@ -81,7 +80,7 @@
 
 ### 4. OpenLANE project Git link
 
-1. Setup of OpenLANE from Github using git clone and following the process in the [repository](https://github.com/efabless/openlane2)
+1. Setup of OpenLANE from Github using git clone and following the process in the [OpenLANE efabless repository](https://github.com/efabless/openlane2)
 2. Refer to FOSSI dialup videos for installation.
 
 ### 5. Steps to characterize synthesis results
@@ -99,6 +98,28 @@
 
 4. To calculate the flop ratio, open the 'yosys_4.stat.rpt'. Divide the value of sky130_fd_sc_hd__dfxtp_2 and Total number of cells.
      (sky130_fd_sc_hd__dfxtp_2) / (Total number of cells) = 1613/14876 = 0.1084 = 10.84%
+
+
+## DAY 2: Good floorplan vs bad floorplan and introduction to library cells
+
+### 1. Steps to run floorplan in OpenLANE
+
+1. Open README.md in configurations directory. Variables required for each stage (Ex: synthesis, floorplan ...), update variable as per flow and requirment are all kept here. Variables are also called switching.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/97d18280-f847-4d62-9667-bce3276ac4d6)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dcc54beb-84ed-4a87-9f98-f0265ec192e0)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/a1cabf2f-64fd-4edd-88d0-4d8d76a55c8d)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/a1c103d3-9490-4dbf-a499-6602690e35b6)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b9537bae-f250-4ead-bd51-a4a764210e2e)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/96c227d6-58dc-424f-bcea-834e982410fd)
+
+2. Now `run_floorplan`. After run is complete, similar to the synthesis process, go to the **floorplan** directory in the run and review the files.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/17547172-0863-4502-b3c9-84d971ffc9be)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0bd39537-cd4b-41af-9b84-b3f444e2697b)
+
+3. Now `run_placement` after the floorplan is completed.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/df4776e9-c8e7-4399-b57d-f5866b8a7705)
+
+
 
 ## DAY 3: Design library cell using Magic Layout and ngspice characterization
 
