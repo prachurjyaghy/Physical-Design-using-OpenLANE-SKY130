@@ -157,6 +157,7 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
       b. Magic and netgen used for LVS (extracted SPICE by Magic vs Verilog netlist).
       
 
+
 ## DAY 2: Good floorplan vs bad floorplan and introduction to library cells
 
 ### 1. Chip floor planning considerations
@@ -265,6 +266,47 @@ Example: Inverter design flow
 8. Provide necessary output capacitances
 9. Necessary simulation commands (.tran, .dc)
 10. Feed all the inputs to characterization software **GUNA** (Timing, Noise and Power characterization models will be created)
+
+
+### 4. General timing characterization parameters
+
+#### 4.1 TIming threshold definitions
+1. Threshold is calculated using the 20% of high / low values
+2. Rise and fall is calculated using the 50% of the high and low values
+
+
+
+## DAY 3: Design lib cell using Magic layout and ngspice characterization
+
+### 1. SPICE deck creation for CMOS inverter
+1. SPICE deck creation
+2. Switching threshold Vm.
+3. CMOS inverter robustness
+4. Static and dynamic simulation of CMOS inverter
+
+
+### 2. CMOS layout fabrication process
+1. Using a 16-mask CMOS process from creating substrate to etching metal layers and then protecting it
+2. Create active region
+3. N & P well formation
+4. Gate formation
+5. LDD formation
+6. Source and Drain formation
+7. Formation of contacts and interconnects
+8. Higher level metal formation
+
+
+
+## DAY 4: Pre-timing layout analysis and importance of good clock tree
+
+### 1. Delay tables
+1. Delay tables helps to create the propagation delays from one logic cell to another
+
+
+### 2. Crosstalk and clock net shielding
+1. Crosstalk happens when there is a long parallel wire and no driver in it. The distance can cause coupling connections and the agressor can change the victim's logic.
+2. Clock net shielding is protection from the clock net reduce crosstalk or coupling
+3. Timing analysis with real clocks considers the actual delays in the nets for both the SETUP and HOLD as the clock gets created after CTS. STA is performed on the routed netlist with real clocks.
 
 
 
