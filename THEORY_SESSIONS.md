@@ -247,8 +247,25 @@ Example: Inverter design flow
    d. libs and user defined specs: Physical parameters like drive strength, height, metal layer, pin location
 
 2. Design steps:
-   a. Circuit design
-3. 
+   a. Circuit design: as per value required parameters are udpated
+   b. Layout: implement the values in design
+   c. Characterization: helps to get the timing, noise adn power
+
+#### 3.3 Characterization flow:
+1. Inputs:
+   a. layout of buffers
+   b. description og gate of buffer
+   c. SPICE netlist
+2. Read the model files
+3. Extracted SPICE netlist
+4. Recognise behaviour of buffer
+5. Read the sub circuit of inverter
+6. Attach the necessary power sources
+7. Apply stimulus as pulse, etc
+8. Provide necessary output capacitances
+9. Necessary simulation commands (.tran, .dc)
+10. Feed all the inputs to characterization software **GUNA** (Timing, Noise and Power characterization models will be created)
+
 
 
 ## DAY 5: Final steps for RTL2GDS using tritonRoute and openSTA
