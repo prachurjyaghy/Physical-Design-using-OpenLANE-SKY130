@@ -88,8 +88,63 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
    1. Implement the interconnects using available metal layers.
    2. Lowest layer is for local interconnect layer and is made of titanium alloy.
    3. All above layers are of aluminium layers.
+   4. Grid routing format:
+      a. Global: generates routing guides.
+      b. Detail: uses routing guides to implement the actual wiring.
 
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/925eb1e6-89f1-4d5c-ace5-a88c88cf0a47)
 
    **SIGN OFF**
    1. Physical Verification: DRC , Layout vs schematic (final layout mathces the Gate level netlist)
+   2. Timing Verification: STA
+
+
+#### 2.3 OpenLANE and Strive chipsets
+
+   **OpenLANE**
+   1. Apache 2.0 license [OSS]
+   2. Started as OD flow for OS Tape-out experiments
+   3. StriVe is a family of open everything SoCs. (Open PDK, Open EDA, Open RTL)
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c141ff81-2866-4249-8512-3c26f42a2e7b)
+
+   4. Goal to produce clean GDSII with no human intervention
+   5. Tuned for Skywater 130nm Open PDK
+   6. Containerized for functional out of the box and instructions to build and run natively will follow
+   7. Modes of operations:
+      a. Autonomous: get final GDS with reports after sometime
+      b. Interactive: run commands step by step to check intermediate results and do experimentation
+
+#### OpenLANE details ASIC design flow
+
+   **Design exploration utility**
+   1. Sweep the design configurations to generate reports which shows design matrices and violations generated and find configurations for optimal use in OpenLANE.
+   2. Regression testing.
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/53cbc2ab-7ea5-4bd0-a12c-088e4e402fed)
+
+   3. Run OpenLANE on ~70 designs and compare the results to the best known results. Difference will be reported.
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/f0007914-9054-47be-94b3-37dcc306ccdb)
+
+   
+   **Design for Test (DFT)**
+   1. Scan insertion
+   2. Automatic test patterm generation (ATPG)
+   3. Test patterns compaction
+   4. Fault coverage
+   5. Fault simulation
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6f549859-7b07-4df6-9339-0769def877e3)
+
+
+   **Physical Implementation (OpenRoad)**
+   1. PnR:
+      a. Floor/power planning
+      b. End decoupling capacitors and tap cells insertion
+      c. Placement: GLobal and detailed
+      d. Post placement optimization
+      e. CTS
+      f. Routing: Global and detailed
+   2. Fake antenna swapping script:
+      a. metal wire segment fabricated when long enough can be an antenna.
+      b. collects charges and damage transistors. Length is constrained. Job of routers.
+      c. Add fake antenna diode next to every cell I/P after placement.
+      d. Run Magic (antenna checker) on routed layout violation reported on cell I/P pin.
+      
