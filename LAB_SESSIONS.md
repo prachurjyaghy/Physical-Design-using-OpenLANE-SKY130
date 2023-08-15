@@ -1,6 +1,53 @@
+
+
+
 # LAB SESSIONS:
 
 ## DAY 1: Get familier to open-source EDA tools
+
+### 1. OpenLANE directory structure
+
+1. Open terminal and go to open_lane_working_dir.
+  ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0ecc1132-3f60-48ee-96ae-2cebf85921e5)
+  
+2. Check the PDKs.
+  ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b7e9562c-2b53-4cb0-82fa-6feef94c0d02)
+
+   a. Skywater PDK (for workshop) has OS and OpenLANE and all the PDKs: timing, tech lef and cell lef.
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/81d44b73-1505-4b11-82d0-5624b2281557)
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0bcbd5e8-f9c0-4aa1-a119-d9db04c224e6)
+      
+   b. Open PDKs: mitigate commercial foundry with OS tools.
+     
+   c. sky130A (PDK variant) which is made compatible for OS.
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e4c1949a-83ff-454e-8ad7-0598e7f41f86)
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b27b7b61-d5dd-4a58-b396-1d4717b69fdc)
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/76df72f2-ed58-4a58-a52a-b9bdae2596fb)
+      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/21e93a53-4b0d-45b1-a2c7-ee19ddb5e816)
+     
+3. Invoke the OpenLANE in the openlane directory.
+     ```
+     docker
+     ./flow.tcl -interactive
+     package require openlane 0.9
+     ```
+     ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/9ac0491c-5054-458a-b53e-e126a750df00)
+
+     
+### 2. Design preparation 
+
+1.  Multiple designs are in OpenLANE. Go inside the picorv32a.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ed2e9695-8e5b-4c8d-8737-19d73f56b655)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/d322f6c6-399e-40dd-a98a-f7804fd397f2)
+
+2. Check the config.tcl file which will be used for the picorv32a design.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/cb2445d6-458e-45d4-a668-c6dc8cfe3f15)
+
+3. Check the standard cell tcl.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/84991b4c-b0f4-423f-a81c-6bc66515dbe5)
+
+4. Now design step is creating. Merging the cell and tech lefs into one.
+ 
 
 ## DAY 3: Design library cell using Magic Layout and ngspice characterization
 
