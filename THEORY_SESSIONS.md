@@ -45,8 +45,9 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
 #### 2.1 Components of open source digital ASIC design
 1. Lynn Conway and Carver Mead pioneered "structured" design methodology based on lambda based rules.
    a. Fabless design companies emerged due to this.
-   b. PDKs are interface between fab and designers. Process Design Kit is collection of files to model a fabrication. (Includes Process Design Rules: DRC, LVS, PEX... ,            device models, Digital Standard Cell libraries, IO libraries)
-2. Google and Skywater releases OS PDK for ASIC implementation. Using Apache 2.0 license. Uses FOSS 130nm Production PDK.
+   b. PDKs are interface between fab and designers. Process Design Kit is collection of files to model a fabrication. (Includes Process Design Rules: DRC, LVS, PEX..., 
+      device models, Digital Standard Cell libraries, IO libraries)
+3. Google and Skywater releases OS PDK for ASIC implementation. Using Apache 2.0 license. Uses FOSS 130nm Production PDK.
    a. 130 nm has good performance which do not need advanced nodes.
    b. Fabrication is cheaper.
    c. Ex: Intel: P4EE @ 3.46GHz (Q4'04). OSU team reproted 327 MHz post layout clock frequency for single RV32i CPU.
@@ -68,7 +69,7 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
       a. Reduces resistance
       b. Addresses electromigration
          > Electromigration:
-         > Failure mechanism to be considered in VLSI physical design. Atoms in traces can experience diffusion (real interconnects). Eventually leaves an open circuit                  (driven bycurrent density and temperature of conductor of the interconnect).
+         > Failure mechanism to be considered in VLSI physical design. Atoms in traces can experience diffusion (real interconnects). Eventually leaves an open                   circuit (driven bycurrent density and temperature of conductor of the interconnect).
          
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/833befac-7db2-4ba4-8f5b-6a1e676eb21d)
 
@@ -117,7 +118,7 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
       a. Autonomous: get final GDS with reports after sometime
       b. Interactive: run commands step by step to check intermediate results and do experimentation
 
-#### OpenLANE details ASIC design flow
+#### 2.4 OpenLANE details ASIC design flow
 
    **Design exploration utility**
    1. Sweep the design configurations to generate reports which shows design matrices and violations generated and find configurations for optimal use in OpenLANE.
@@ -150,4 +151,33 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
       b. collects charges and damage transistors. Length is constrained. Job of routers.
       c. Add fake antenna diode next to every cell I/P after placement.
       d. Run Magic (antenna checker) on routed layout violation reported on cell I/P pin.
+   3. STA: Extraction of SPEFs and OpenSTA (integrated in Openroad) after which the reports are generated with timing violations.
+   4. Physical Verification:
+      a. Magic helps for DRCs and SPICE extraction from layout.
+      b. Magic and netgen used for LVS (extracted SPICE by Magic vs Verilog netlist).
       
+
+## DAY 2: Good floorplan vs bad floorplan and introduction to library cells
+
+### 1. Chip floor planning considerations
+
+#### 1.1 Utilization factor and aspect ratio
+1.  Define height and width of core and die
+2.  Utilization factor = (Area occupied by netlist) / (Area of core)
+3.  Aspect ratio = Height / Width
+
+#### 1.2 Pre-placed cells
+1.  Combinational logic output has multiple gates.
+   a. Divided as cut1 & cut2 which is separated as 2 blocks. IO pins are extended for connection.
+   b. Blackboxes as two different IP's / modules. Users can implement separately for reuse.
+2. IPs example: memory, clock gating cell, comparator, MUX. Plcaement is fixed before routing and automates PnR tools
+
+#### 1.3 De-coupling capacitors
+1. Discharge of capacitor should be handled by source voltage. This is due to wire resistance, the Vdd -> Vdd' and will not be detected as logic '1'.
+2. This region is noise margin. For detections, logic '0' -> '1' should be in NML and logic '1' -> '0' should be in NMH regions.
+3. During switching, decoupling capacitors will send current to the circuit needed. When no switching happens, it gets charge from the source.
+4. In the design, surronding block will have DECAPs placed and supply required current to the needed blocks.
+
+## DAY 5: Final steps for RTL2GDS using tritonRoute and openSTA
+
+### 1. Maze Routing - Lee's Algorithm
