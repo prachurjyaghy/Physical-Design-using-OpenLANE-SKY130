@@ -40,15 +40,33 @@
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ed2e9695-8e5b-4c8d-8737-19d73f56b655)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/d322f6c6-399e-40dd-a98a-f7804fd397f2)
 
-2. Check the config.tcl file which will be used for the picorv32a design.
+2. Check the config.tcl file which will be used for the initial picorv32a design for new runs as base file.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/cb2445d6-458e-45d4-a668-c6dc8cfe3f15)
 
 3. Check the standard cell tcl.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/84991b4c-b0f4-423f-a81c-6bc66515dbe5)
 
-4. Now design step is creating. Merging the cell and tech lefs into one.
- 
+4. Now design step is created using `prep -design picorv32a`. Merging the cell and tech lefs into one.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5a10a366-98a6-4edb-854b-ce1009d1b4dd)
 
+
+### 3. Review files
+
+1. Inside the picrov32a design directory **runs** is created where the tool auto creates directory with current date-time.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/54c6473c-6478-47f4-b348-1398ce1f7ef0)
+
+2. **tmp** folder is where the temp files are created.
+   a. merged.lef is created when using the prep of picorv32 design (merged.py - Has layers, wires, cell level lef info which uses rectangle to define size)
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b6945b26-5258-4d13-bf39-9bc647159f6f)
+   b. Check the merged.lef using `less merged.lef`
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6894f4ee-1611-48af-8570-ce1ed790bbb8)
+
+3. **results** folder has all the PnR level folders
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/026b048b-e2ae-49f5-adbf-befffb910130)
+
+4. **reports** folder has all the timing analysis in config and reports will be generated here.
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4d6e1df4-2475-40ff-9743-d10104c6c8e5)
+   
 ## DAY 3: Design library cell using Magic Layout and ngspice characterization
 
 ### 1. IO placer
