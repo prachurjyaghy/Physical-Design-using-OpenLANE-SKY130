@@ -100,9 +100,10 @@
      (sky130_fd_sc_hd__dfxtp_2) / (Total number of cells) = 1613/14876 = 0.1084 = 10.84%
 
 
+
 ## DAY 2: Good floorplan vs bad floorplan and introduction to library cells
 
-### 1. Steps to run floorplan in OpenLANE
+### 1. Steps to run floorplan and placement in OpenLANE
 
 1. Open README.md in configurations directory. Variables required for each stage (Ex: synthesis, floorplan ...), update variable as per flow and requirment are all kept here. Variables are also called switching.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/97d18280-f847-4d62-9667-bce3276ac4d6)
@@ -116,7 +117,9 @@
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/17547172-0863-4502-b3c9-84d971ffc9be)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0bd39537-cd4b-41af-9b84-b3f444e2697b)
 
-3. Now `run_placement` after the floorplan is completed.
+3. To check the floorplan in Magic tool use `magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &'
+
+4. Now `run_placement` after the floorplan is completed.
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/df4776e9-c8e7-4399-b57d-f5866b8a7705)
 
 
@@ -131,9 +134,9 @@
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/65d2872a-6709-47fa-b973-42a1019a26a0)
 
 
-### 2. GIT CLONE of "vlsistdcelldesign"
+### 2. GIT CLONE of "vsdstdcelldesign"
 
-  1. First go to the directory of vlsistdcelldesign on github.
+  1. First go to the directory of vsdstdcelldesign on github.
   2. Clone the github repo "https://github.com/nickson-jose/vsdstdcelldesign.git".
 
   Command: `git clone https://github.com/nickson-jose/vsdstdcelldesign.git`
@@ -148,7 +151,7 @@
   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dbdad075-807a-4f08-bf76-a835f774d9f4)
 
 
-### 3. MAGIC TOOL
+### 3. MAGIC TOOL (VSDSTDCELLDESIGN)
 
   1. Open MAGIC tool to see the standard cell design in the cloned directory location. Also the tkcon terminal for MAGIC will open.
 
@@ -206,8 +209,10 @@
      ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/10187b06-394c-4361-a434-f01b2929d053)
 
 
-### 5. SKY130
+### 5. MAGIC TOOL (DRC)
 
+1. For tutorial and more details go to the [opencircuitdesign](http://opencircuitdesign.com/magic/index.html) website.
+2. For skywater pdks check [skywaterpdks](https://github.com/google/skywater-pdk)
 
 
 ## DAY 4: Pre-layout timing analysis and importance of good clock tree
