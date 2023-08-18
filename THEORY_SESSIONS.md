@@ -393,7 +393,17 @@ Example: Inverter design flow
 1. Doping concentation and oxide capacitance
 2. Using **Mask 4** and **Boron** ion-implementation (low energy) to create doping concentration P-well
 3. Using **Mask 5** and **Arsenic** to creating N-well
-4. Fix the oxide by etching original using **HF**
+4. Fix the oxide by etching original using **HF**(Hydrogen Flouride) solution. This regrows quality oxide layer thickness as per threshold voltage requirement.
+5. Polysilicon **Mask 6** creates gate
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5ef6f09e-2e9c-4b68-86bf-56da0e49a58d)
+
+
+#### 2.4 LDD formation (Lightly Doped Drain formation)
+1. Attain doping profile for PMOS (P+, P-, N) and NMOS (N+, N-, P). The P- and N- regions are created for Hot electron effect and short channel effect
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ad51c2da-ee2a-46e8-8981-ae224cd11841)
+
+
+
 
 ## DAY 4: Pre-timing layout analysis and importance of good clock tree
 
