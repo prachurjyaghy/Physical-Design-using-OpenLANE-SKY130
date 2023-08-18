@@ -256,9 +256,7 @@ Example: Inverter design flow
 
 3. Design steps:
    a. Circuit design: as per value required parameters are udpated
-   
    b. Layout: implement the values in design
-   
    c. Characterization: helps to get the timing, noise adn power
    
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0b12c6ef-b154-4e95-9b19-ebd746be69ab)
@@ -279,6 +277,7 @@ Example: Inverter design flow
 8. Provide necessary output capacitances
 9. Necessary simulation commands (.tran, .dc)
 10. Feed all the inputs to characterization software **GUNA** (Timing, Noise and Power characterization models will be created)
+
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/feb7d722-6b6e-4e2f-b12d-c0308cae4106)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/bb90b5aa-f06a-4ad4-bfcf-d18ccf8108b3)
 
@@ -293,6 +292,16 @@ Example: Inverter design flow
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/26a97e78-5fff-44a6-9268-d6a71c188f2f)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/cd17cf41-815a-499e-b615-772fa6460adc)
 
+
+#### 4.2 Propagation delay (using example output waveform)
+1.  Delay = time(out_*_thr) - time(in_*_thr)
+2.  Incase threshold values increase, then there could be negative delay
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/1bb21dbc-b0a3-4fad-8cbd-d3315b79aa97)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/f64b3c93-6e85-46d5-8ed5-09bf6b437ae2)
+
+3.  Slew rise/fall = time(slew_high) - time(slew_low)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/110ae12e-2a18-463d-80e2-d7751c053806)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/31a6c426-c1cd-4913-a58d-91a963d7074f)
 
 
 ## DAY 3: Design lib cell using Magic layout and ngspice characterization
