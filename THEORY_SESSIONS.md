@@ -357,7 +357,7 @@ Example: Inverter design flow
 #### 2.1 Create Active regions
 1. Selecting a substrate
    a. Substrate doping should be less than 'well' doping
-   b. Ex: p-type, high resistivity (5~50 ohms), doping level (10<sup>15</sup> cm<sup>-3</sup>
+   b. Ex: p-type, high resistivity (5~50 ohms), doping level (10<sup>15</sup> cm<sup>-3</sup>)
 2. Create active region for transistors
    a. Create isolation between every pockets
    b. 40nm of SiO<sub>2</sub>
@@ -395,6 +395,7 @@ Example: Inverter design flow
 3. Using **Mask 5** and **Arsenic** to creating N-well
 4. Fix the oxide by etching original using **HF**(Hydrogen Flouride) solution. This regrows quality oxide layer thickness as per threshold voltage requirement.
 5. Polysilicon **Mask 6** creates gate
+
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5ef6f09e-2e9c-4b68-86bf-56da0e49a58d)
 
 
@@ -402,6 +403,7 @@ Example: Inverter design flow
 1. Attain doping profile for PMOS (P+, P-, N) and NMOS (N+, N-, P). The P- and N- regions are created for Hot electron effect and short channel effect
 2. **Mask 7** and **Mask 8** is created for the doping profile
 3. Plasma anisotropic etching is carried out
+
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ad51c2da-ee2a-46e8-8981-ae224cd11841)
 
 
@@ -409,6 +411,7 @@ Example: Inverter design flow
 1. Thin screen of SiO<sub>2</sub> to avaoid channeling dueing implants
 2. **Mask 9** and **Mask 10** is used to create **P+** and **N+** implants
 3. Put in furnace which is called *high temperature anealing*
+
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4c1f3b17-889b-411b-a89a-c3eaac1968f1)
 
 
@@ -417,18 +420,21 @@ Example: Inverter design flow
 2. Deposit titanium using sputtering on wafer surface. Heat in N<sub>2</sub>
    a. TiSi<sub>2</sub> layer is created for metal contacts
    b. TiN is created for local contacts
+
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8edb37f8-fdcf-4c63-a8f1-ccb3f7bf45cb)
 
 
 #### 2.7 Higher level metal formation
 1. **Mask 11** is used to form metal contacts. It consists of 1um of SiO<sub>2</sub> with phosphorus and boron deposited
 2. **Mask 12** is used to form sapce for interconnects
+
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c0558f86-475c-463f-afaf-2c0ed25c8361)
 
 3. **Mask 13** is where **aluminium** metal is used for interconnects
 4. **Mask 14** defines the contact holes
 5. **Mask 15** is used to define patern for third level of interconnects. This is dilectric SiN<sub>4</sub> to protect chip
 6. **Mask 16** is used to open contact holes
+
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4eb79061-8de2-4420-bb09-ef9e1f7d066e)
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4ae0d86d-1698-45eb-982d-bf78f6d115aa)
 
