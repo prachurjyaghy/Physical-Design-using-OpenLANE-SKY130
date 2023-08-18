@@ -293,6 +293,7 @@ Example: Inverter design flow
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/cd17cf41-815a-499e-b615-772fa6460adc)
 
 
+
 #### 4.2 Propagation delay (using example output waveform)
 1.  Delay = time(out_*_thr) - time(in_*_thr)
 2.  Incase threshold values increase, then there could be negative delay
@@ -304,13 +305,42 @@ Example: Inverter design flow
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/31a6c426-c1cd-4913-a58d-91a963d7074f)
 
 
+
 ## DAY 3: Design lib cell using Magic layout and ngspice characterization
 
 ### 1. SPICE deck creation for CMOS inverter
-1. SPICE deck creation
-2. Switching threshold Vm.
-3. CMOS inverter robustness
-4. Static and dynamic simulation of CMOS inverter
+
+#### 1.1 SPICE deck creation
+1. Component connectivity
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3a767605-2e5c-4693-b7c7-d65c3048eedd)
+
+2. Component values
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c084b14c-6f50-44bf-8e58-64ecc8e86dd2)
+
+3. Identify nodes
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6e7866ea-9e6d-4aec-abc5-8ed694a7c8f0)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5aea682f-a9b1-4594-b7a1-99e375d6e477)
+
+4. Name nodes
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ba993fc8-d67a-4e7e-94d9-000ebfbd43bb)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/fa991e94-0b83-41fb-b38a-a71ec00618f3)
+
+5. Model file "tsmc_025um_model.mod" contains all the tech files and has data of CMOS
+
+
+#### 1.2 Switching threshold Vm
+1. CMOS Inverter Robustness can be determined by the switching of the the threshold voltage, Vm
+   a. Switching Threshold, Vm
+   b. Vm is Vin = Vout in graph after a tangent is drawn
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/f22edc48-0f8a-4011-9f36-91fcdd192a8c)
+
+   c. Since current is flowing in same but differnt direction, therefore Vgs - Vds => Idsp = -Idsn
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/2c22d5a9-5a69-4d9b-9a1c-f182cb3369ff)
+
+
+#### 1.3 Static and dynamic simultation of CMOS inverter
+1. For Dynamic simulation, we can replace the input by pulse waveform generator
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/f1d482c8-c4e6-4de2-9772-748134555115)
 
 
 ### 2. CMOS layout fabrication process
