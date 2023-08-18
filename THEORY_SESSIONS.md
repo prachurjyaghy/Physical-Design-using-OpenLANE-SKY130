@@ -358,8 +358,42 @@ Example: Inverter design flow
 1. Selecting a substrate
    a. Substrate doping should be less than 'well' doping
    b. Ex: p-type, high resistivity (5~50 ohms), doping level (10<sup>15</sup> cm<sup>-3</sup>
-3. 
+2. Create active region for transistors
+   a. Create isolation between every pockets
+   b. 40nm of SiO<sub>2</sub>
+   c. 80nm of SiN<sub>4</sub>
+   d. 1um photoresist (-ve/ +ve film). Defines regions. **Mask 1** is the protection region for exposure avoidance using photo-lithography
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/6adb9905-968c-4791-8340-1c6b8f1f990c)
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/bf224db3-dc31-4fd1-8561-f724eb4d73bc)
+   
+   
+3. After UV light
+   a. The photoresist layer will be etched off
+   b. With chemical solution, the Si<sub>3</sub>N<sub>4</sub> layer photoresist layer is removed
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ba9b7d02-7bef-408d-adca-a4ffb742060f)
 
+   c. In oxidation furnace, the SiO<sub>2</sub> will grow (known as isolation area). The process is called **LOCUS**
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3dc7a15b-f5fb-401c-b9f9-b06c16808989)
+
+
+
+#### 2.2  Formation of P & N well
+1.  N & P well formation. **Mask 2** will be used now.
+2.  After photoresist, using mask and UV light, the photoresist is cleared.
+3.  Then **Boron** (p-type impurity) ion-implementation creates P-well. This implemntation passes through SiO<sub>2</sub> layer
+4.  Similar for n-well, using **Mask 3**, **Phosphorus** (n-type impurity) ion-implementation creates N-well
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/b72d7cba-8336-4c4a-8273-e753020a6899)
+
+5.  Then push the whole into driving furnace to create wells into the substrate
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8ee1a343-71b4-4cab-9acf-6d1e7aadcba4)
+
+
+
+#### 2.3 Gate formation
+1. Doping concentation and oxide capacitance
+2. Using **Mask 4** and **Boron** ion-implementation (low energy) to create doping concentration P-well
+3. Using **Mask 5** and **Arsenic** to creating N-well
+4. Fix the oxide by etching original using **HF**
 
 ## DAY 4: Pre-timing layout analysis and importance of good clock tree
 
