@@ -400,7 +400,37 @@ Example: Inverter design flow
 
 #### 2.4 LDD formation (Lightly Doped Drain formation)
 1. Attain doping profile for PMOS (P+, P-, N) and NMOS (N+, N-, P). The P- and N- regions are created for Hot electron effect and short channel effect
+2. **Mask 7** and **Mask 8** is created for the doping profile
+3. Plasma anisotropic etching is carried out
 ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ad51c2da-ee2a-46e8-8981-ae224cd11841)
+
+
+#### 2.5 Source and Drain formation
+1. Thin screen of SiO<sub>2</sub> to avaoid channeling dueing implants
+2. **Mask 9** and **Mask 10** is used to create **P+** and **N+** implants
+3. Put in furnace which is called *high temperature anealing*
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4c1f3b17-889b-411b-a89a-c3eaac1968f1)
+
+
+#### 2.6 Formation of contacts and interconnects
+1. Remove the SiO<sub>2</sub> screen with **HF** solution
+2. Deposit titanium using sputtering on wafer surface. Heat in N<sub>2</sub>
+   a. TiSi<sub>2</sub> layer is created for metal contacts
+   b. TiN is created for local contacts
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/8edb37f8-fdcf-4c63-a8f1-ccb3f7bf45cb)
+
+
+#### 2.7 Higher level metal formation
+1. **Mask 11** is used to form metal contacts. It consists of 1um of SiO<sub>2</sub> with phosphorus and boron deposited
+2. **Mask 12** is used to form sapce for interconnects
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c0558f86-475c-463f-afaf-2c0ed25c8361)
+
+3. **Mask 13** is where **aluminium** metal is used for interconnects
+4. **Mask 14** defines the contact holes
+5. **Mask 15** is used to define patern for third level of interconnects. This is dilectric SiN<sub>4</sub> to protect chip
+6. **Mask 16** is used to open contact holes
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4eb79061-8de2-4420-bb09-ef9e1f7d066e)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/4ae0d86d-1698-45eb-982d-bf78f6d115aa)
 
 
 
