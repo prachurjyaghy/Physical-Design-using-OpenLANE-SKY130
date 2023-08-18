@@ -237,7 +237,10 @@ RISC-V Instruction Set Architecture (ISA): C propgram is written and compiled to
 
 #### 3.1 Inputs for cell design flows
 1. Library contains macros/ IPs, standard cells, ICG.
-2. Different functionality and sizes with HVT, SVT, LVT.
+2. Different functionality and sizes with HVT, SVT, LVT
+   
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/93e734e5-a918-41a1-9413-9a7e54855466)
+
 
 #### 3.2 Cell design flow:
 Example: Inverter design flow
@@ -246,11 +249,21 @@ Example: Inverter design flow
    b. DRC and LVS rules: Foundry defines the rules for real time implementation
    c. SPICE: model parameters from foundry
    d. libs and user defined specs: Physical parameters like drive strength, height, metal layer, pin location
+   
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c9fb5a51-254d-41be-881f-8f6c6989fedd)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/ae46084c-6759-464e-83bc-9a644fc680c9)
 
-2. Design steps:
+
+3. Design steps:
    a. Circuit design: as per value required parameters are udpated
+   
    b. Layout: implement the values in design
+   
    c. Characterization: helps to get the timing, noise adn power
+   
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0b12c6ef-b154-4e95-9b19-ebd746be69ab)
+
+
 
 #### 3.3 Characterization flow:
 1. Inputs:
@@ -266,13 +279,19 @@ Example: Inverter design flow
 8. Provide necessary output capacitances
 9. Necessary simulation commands (.tran, .dc)
 10. Feed all the inputs to characterization software **GUNA** (Timing, Noise and Power characterization models will be created)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/feb7d722-6b6e-4e2f-b12d-c0308cae4106)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/bb90b5aa-f06a-4ad4-bfcf-d18ccf8108b3)
 
 
 ### 4. General timing characterization parameters
 
 #### 4.1 TIming threshold definitions
-1. Threshold is calculated using the 20% of high / low values
+1. Slew threshold is calculated using the 20% of high / low values
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/04d71764-5103-430e-9e64-a8c4122e255a)
+
 2. Rise and fall is calculated using the 50% of the high and low values
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/26a97e78-5fff-44a6-9268-d6a71c188f2f)
+![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/cd17cf41-815a-499e-b615-772fa6460adc)
 
 
 
