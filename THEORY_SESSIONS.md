@@ -1,6 +1,10 @@
 # THEORY SESSIONS
 
 
+## Table of Contents
+### DAY 1: Inception of open source EDA, OpenLANE and Sky130PDK
+   #### 1. [How computers talk](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/edit/main/THEORY_SESSIONS.md#1-how-computers-talk)
+   #### 2. [SoC Design and OpenLANE](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/edit/main/THEORY_SESSIONS.md#2-soc-design-and-openlane)
 ## DAY 1: Inception of open source EDA, OpenLANE and Sky130PDK
 
 ### 1. How computers talk
