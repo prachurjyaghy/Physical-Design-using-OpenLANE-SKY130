@@ -2,9 +2,42 @@
 
 
 ## Table of Contents
-### DAY 1: Inception of open source EDA, OpenLANE and Sky130PDK
+
+### [DAY 1: Inception of open source EDA, OpenLANE and Sky130PDK]()
    #### 1. [How computers talk](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/edit/main/THEORY_SESSIONS.md#1-how-computers-talk)
    #### 2. [SoC Design and OpenLANE](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/edit/main/THEORY_SESSIONS.md#2-soc-design-and-openlane)
+
+
+
+### [DAY 2: Good floorplan vs bad floorplan and introduction to library cells](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#day-2-good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+   #### 1. [Chip floor planning considerations](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#1-chip-floor-planning-considerations)
+   #### 2. [Library binding and placement](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#2-library-binding-and-placement)
+   #### 3. [Cell design and characterization flows](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#3--cell-design-and-characterization-flows)
+   #### 4. [General timing characterization parameters](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#4-general-timing-characterization-parameters)
+
+
+
+### [DAY 3: Design lib cell using Magic layout and ngspice characterization](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#day-3-design-lib-cell-using-magic-layout-and-ngspice-characterization)
+   #### 1. [SPICE deck creation for CMOS inverter](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#1-spice-deck-creation-for-cmos-inverter)
+   #### 2. [Inception of layout of CMOS fabrication process (16-mask CMOS process)](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#2-inception-of-layout-of-cmos-fabrication-process-16-mask-cmos-process)
+
+
+
+### [DAY 4: Pre-timing layout analysis and importance of good clock tree](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#day-4-pre-timing-layout-analysis-and-importance-of-good-clock-tree)
+   #### 1. [Introduction to Delay tables](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#1-introduction-to-delay-tables)
+   #### 2. [Setup timing analysis and FR setup time](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#2-setup-timing-analysis-and-fr-setup-time)
+   #### 3. [Clock tree routing](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#3-clock-tree-routing)
+   #### 4. [Timing analysis with real clocks using openSTA](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#4-timing-analysis-with-real-clocks-using-opensta)
+
+
+
+### [DAY 5: Final steps for RTL2GDS using tritonRoute and openSTA](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#day-5-final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+   #### 1. [Routing and design rule check](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#1-routing-and-design-rule-check)
+   #### 2. [Routing using TritonRoute](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/blob/main/THEORY_SESSIONS.md#2-routing-using-tritonroute)
+
+
+
+
 ## DAY 1: Inception of open source EDA, OpenLANE and Sky130PDK
 
 ### 1. How computers talk
