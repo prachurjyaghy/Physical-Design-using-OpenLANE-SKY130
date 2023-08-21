@@ -443,14 +443,106 @@ Example: Inverter design flow
 
 ## DAY 4: Pre-timing layout analysis and importance of good clock tree
 
-### 1. Delay tables
+### 1. Introduction to Delay tables
+
+#### 1.1 Delay tables with examples
 1. Delay tables helps to create the propagation delays from one logic cell to another
+2. Assume capacitance at nodes:
+   a. Buffers in same level to be of same size
+   b. Ouput capacitance is not contant and varies at each buffers and also varies the input transition at buffer inputs
+   c. To capture the above, delay tables were created for each type of cells
+3. Size: W x L ratio for Buffer '1' and '2' sizes. These are internal PMOS and NMOS
+4. For respective delay as per the input , take example for 40ps from the below snap. Equation is used
+5. For high Fanout, delay propagation happens and can increase the skew.
+6. Under specific condition, the clock propagation can be stopped
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5f33b452-1ce2-4430-9661-a254a8b6c8da)
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/46db8bcd-dc84-494c-b0ed-c7601d22c5ec)
+   
+
+### 2. Setup timing analysis and FR setup time 
+
+#### 2.1 Setup analysis using Single clock
+1. When ideal clock is used, the clock tree is not built yet
+2. On Zeroth clock, 1 clock edge that reaches the Launch Clock
+3. On Tth clock, 1 clock edge that reaches the Capture Clock
+4. Check this out with an example:
+   a. Assume Combinational Logic delay as 'theta'
+   b. For circuit to work, 'theta' < T
+   c. When clk = 0, data reaches to Q<sub>m</sub> from D in the MUX
+   d. When clk = 1, MUX1 output is given as feedback to input and then Q<sub>m</sub> goes to MUX2
+   e. Time required by the Capture Clock for the Combinational Logic data before the next clock edge is checked
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3c00e3e2-aaea-4fe8-9974-053dd3945822)
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5f497650-f75f-4f0a-a186-8ebdc6bb75d8)
 
 
-### 2. Crosstalk and clock net shielding
-1. Crosstalk happens when there is a long parallel wire and no driver in it. The distance can cause coupling connections and the agressor can change the victim's logic.
-2. Clock net shielding is protection from the clock net reduce crosstalk or coupling
-3. Timing analysis with real clocks considers the actual delays in the nets for both the SETUP and HOLD as the clock gets created after CTS. STA is performed on the routed netlist with real clocks.
+#### 2.2 Setup analysis adding Uncertainity/ Jitter
+1. Jitter is when the clock source (PLL) might have variation, which can give clock edge between 0 and T ns to arrive early or late. It could be temperature variation of clock period
+2. Uncertainity is considered as the combination of the variations in the clock signal
+3. So we can now have to add the uncertainity to the previous Setup analysis
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/cf6b177e-e1fe-47a5-a46a-f9dc699bd32e)
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/5fabe468-0bf7-47b4-b385-9a7e9918be04)
+
+
+### 3. Clock tree routing 
+
+#### 3.1 Buffering using H-tree
+1. Differnce between Capcute Clock and Launch CLock path is 'SKEW'
+2. Repeater for clocks ahve equal rise and fall times
+3. With addition of Buffer, the clock from port reaches the Flip-Flops so that the clock data is reproduced at Flip-Flop
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/41217386-94b5-4e4e-b526-9f7a44103dc9)
+
+
+#### 3.2 Crosstalk and clock net shielding
+1. Shielding is the protection for the clock net to reduce the crosstalk or coupling. They are either connected to VDD or VSS. Only the critical clock nets are shielded or else it could increase area
+2. Crosstalk is the coupling between 2 long wires, which adds delay due to switching
+3. Glitch is caused when VDD droop to the coupling wire i.e victim. Logic might change the result that it was expected to produce
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/0e944d43-181d-43dd-bd24-6eb0374853a1)
+
+
+
+### 4. Timing analysis with real clocks using openSTA
+
+#### 4.1 Setup analysis with real clocks
+1. Check the example and calculate the Combinaltional Delay delay 'theta'
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/3534f33b-4f4d-472e-a090-c4a812ff6b97)
+
+2. Combinaltional delay will now add the clock network delay as well where the buffer from the source clock is also considered
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/917e9665-204a-410e-8975-5382a43f01eb)
+
+3. The initial clock period will add the 'delta' 1 and 2 in it to accomodate the buffer delays
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/c6687b47-fc95-449f-94cf-2969c81e0054)
+
+4. Actual delay diagram for the clock path
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/1b9d7e70-8951-44ee-b818-400061e4859d)
+
+
+
+#### 4.2 Hold analysis with real clocks
+1. Check the example to calculate the data
+
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/2e63744e-d446-4768-8f36-0c40e86110b3)
+
+2. Since data is in the Flip-Flop, time required to send Q<sub>m</sub> to Q is the MUX2 delay. It holds the data before the next clock arrives
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/399296bc-a6db-46ec-ab4a-caafe5dea6f5)
+
+3. Check the SKEW
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dcf13302-da65-4576-84f4-ef763ae98cc0)
+
+4. Actual delay diagram for the clock path in hold
+   ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e4b1902c-c470-4b8f-a1ed-408098474b64)
+
+   > For common clock paths, CPPR (derates) for the OCV factors are considered and added to the clock path. This factors in the real time fabrication factors.
+
 
 
 
