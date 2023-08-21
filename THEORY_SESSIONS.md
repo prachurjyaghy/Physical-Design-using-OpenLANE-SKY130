@@ -533,12 +533,15 @@ Example: Inverter design flow
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/2e63744e-d446-4768-8f36-0c40e86110b3)
 
 2. Since data is in the Flip-Flop, time required to send Q<sub>m</sub> to Q is the MUX2 delay. It holds the data before the next clock arrives
+
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/399296bc-a6db-46ec-ab4a-caafe5dea6f5)
 
 3. Check the SKEW
+
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/dcf13302-da65-4576-84f4-ef763ae98cc0)
 
 4. Actual delay diagram for the clock path in hold
+
    ![image](https://github.com/prachurjyaghy/Physical-Design-using-OpenLANE-SKY130/assets/48976708/e4b1902c-c470-4b8f-a1ed-408098474b64)
 
    > For common clock paths, CPPR (derates) for the OCV factors are considered and added to the clock path. This factors in the real time fabrication factors.
